@@ -15,28 +15,22 @@
     .bg-accent { background-color: #7cfc00; }
     .border-accent { border-color: #7cfc00; }
     
-    /* Glow & Shadow Effects */
-    .shadow-glow { box-shadow: 0 0 25px rgba(124, 252, 0, 0.2); }
-    .shadow-glow-hover:hover { 
-      box-shadow: 0 0 35px rgba(124, 252, 0, 0.35); 
-      transform: translateY(-4px);
-    }
+    .shadow-glow { box-shadow: 0 0 25px rgba(124, 252, 0, 0.15); }
+    .shadow-glow-hover:hover { box-shadow: 0 0 35px rgba(124, 252, 0, 0.3); }
 
-    /* Keyframe Animations */
-    @keyframes subtlePulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(0.98); }
+    /* Animation on Buy Now / CTA buttons */
+    @keyframes ctaPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(124, 252, 0, 0.25);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(124, 252, 0, 0.5);
+      }
     }
-    .animate-pulse-subtle {
-      animation: subtlePulse 3s infinite ease-in-out;
-    }
-
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    .animate-float {
-      animation: floatSlow 4s infinite ease-in-out;
+    .animate-cta {
+      animation: ctaPulse 2.5s infinite ease-in-out;
     }
   </style>
 </head>
@@ -46,29 +40,180 @@
   <header class="border-b border-gray-800 bg-[#0b0f12]/90 sticky top-0 z-50 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <!-- Dynamic "E" Arrow Logo SVG -->
-        <svg class="w-10 h-10 text-[#7cfc00] transition-transform duration-300 hover:scale-110" viewBox="0 0 100 100" fill="currentColor">
+        <!-- Dynamic "E" Logo SVG -->
+        <svg class="w-10 h-10 text-[#7cfc00]" viewBox="0 0 100 100" fill="currentColor">
           <path d="M20 20 H80 V35 H38 V45 H70 V60 H38 V75 H80 V90 H20 Z"/>
           <path d="M70 45 L90 52.5 L70 60 Z"/>
         </svg>
         <span class="font-bold text-lg sm:text-xl tracking-wider text-white">EASTLEIGH <span class="accent-color">E-COMMERCE ADS</span></span>
       </div>
-      <a href="https://wa.me/254746748557" class="bg-accent text-black font-bold px-5 py-2.5 rounded-lg text-sm sm:text-base hover:opacity-90 transition-all shadow-glow hover:scale-105 active:scale-95">
+      <a href="https://wa.me/254746748557" class="bg-accent text-black font-bold px-5 py-2.5 rounded-lg text-sm sm:text-base hover:opacity-90 transition-all shadow-glow active:scale-95">
         Claim Offer
       </a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center relative overflow-hidden">
-    <div class="inline-block px-4 py-1.5 rounded-full border border-[#7cfc00]/30 bg-[#7cfc00]/10 text-[#7cfc00] text-xs sm:text-sm font-semibold mb-6 tracking-wide uppercase animate-pulse-subtle">
+  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
+    <div class="inline-block px-4 py-1.5 rounded-full border border-[#7cfc00]/30 bg-[#7cfc00]/10 text-[#7cfc00] text-xs sm:text-sm font-semibold mb-6 tracking-wide uppercase">
       Tried • Tested • Proven
     </div>
     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-      Turn Daily Ad Spend Into <span class="accent-color relative">Predictable Revenue</span>
+      Turn Daily Ad Spend Into <span class="accent-color">Predictable Revenue</span>
     </h1>
     <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
       Stop burning budget on boosted posts. We build high-converting WhatsApp DM and landing page funnels engineered for real ROI and consistent order volume.
     </p>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="https://wa.me/254746748557" class="w-full sm:w-auto bg-accent text-black font-extrab
+      <a href="https://wa.me/254746748557" class="w-full sm:w-auto bg-accent text-black font-extrabold px-8 py-4 rounded-xl text-lg hover:opacity-90 transition-all shadow-glow flex items-center justify-center space-x-2 animate-cta">
+        <span>GET STARTED NOW</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+      <a href="#pricing" class="w-full sm:w-auto border border-gray-700 hover:border-gray-500 text-gray-300 font-semibold px-8 py-4 rounded-xl text-lg transition-all">
+        View Packages
+      </a>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section id="pricing" class="py-16 bg-[#11161b] border-t border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">Special Offer Packages</h2>
+        <p class="text-gray-400 text-sm sm:text-base">Select the tier tailored to your business growth stage</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Starter Tier -->
+        <div class="border border-gray-800 bg-[#0b0f12] rounded-2xl p-8 flex flex-col justify-between hover:border-[#7cfc00]/50 transition-all shadow-glow-hover">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#7cfc00]/10 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-[#7cfc00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">STARTER TIER</h3>
+            <p class="text-gray-400 text-xs mb-4">Direct WhatsApp DMs</p>
+            <div class="text-2xl font-black text-[#7cfc00] mb-6">15,000 KES <span class="text-xs text-gray-400 font-normal">(Meta Budget)</span></div>
+            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> 14-Day Campaign Setup</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Direct WhatsApp DM Strategy</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> 24/7 Messaging & Ad Support</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/254746748557?text=Hi,%20I%20want%20to%20get%20started%20with%20the%20Starter%20Tier" class="block text-center border border-[#7cfc00] text-[#7cfc00] font-bold py-3 rounded-lg hover:bg-[#7cfc00] hover:text-black transition-all hover:scale-105 active:scale-95">
+            Choose Starter
+          </a>
+        </div>
+
+        <!-- Growth Tier (Featured) -->
+        <div class="border-2 border-[#7cfc00] bg-[#0b0f12] rounded-2xl p-8 flex flex-col justify-between relative shadow-glow transform md:-translate-y-2">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-black text-xs font-black px-4 py-1 rounded-full uppercase">
+            Most Popular
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#7cfc00]/10 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-[#7cfc00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">GROWTH TIER</h3>
+            <p class="text-gray-400 text-xs mb-4">Landing Page Funnel</p>
+            <div class="text-2xl font-black text-[#7cfc00] mb-6">50,000 KES <span class="text-xs text-gray-400 font-normal">(Meta Budget)</span></div>
+            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> 30-Day Campaign (Up to 2 Active)</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> 1 Custom Landing Page Included</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Bi-Weekly Performance Reports</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Audience Targeting & Retargeting</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/254746748557?text=Hi,%20I%20want%20to%20get%20started%20with%20the%20Growth%20Tier" class="block text-center bg-accent text-black font-extrabold py-3.5 rounded-lg hover:opacity-90 transition-all animate-cta">
+            Choose Growth
+          </a>
+        </div>
+
+        <!-- Scale Tier -->
+        <div class="border border-gray-800 bg-[#0b0f12] rounded-2xl p-8 flex flex-col justify-between hover:border-[#7cfc00]/50 transition-all shadow-glow-hover">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#7cfc00]/10 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-[#7cfc00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">SCALE TIER</h3>
+            <p class="text-gray-400 text-xs mb-4">Commerce Suite</p>
+            <div class="text-2xl font-black text-[#7cfc00] mb-6">100,000 KES <span class="text-xs text-gray-400 font-normal">(Meta Budget)</span></div>
+            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> 30-Day Advanced Multi-Campaign Setup</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Product Landing Page + Meta Shop Setup</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Weekly 1-on-1 Strategy Sessions</li>
+              <li class="flex items-start"><span class="text-[#7cfc00] mr-2">✓</span> Premium Prioritized Support</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/254746748557?text=Hi,%20I%20want%20to%20get%20started%20with%20the%20Scale%20Tier" class="block text-center border border-[#7cfc00] text-[#7cfc00] font-bold py-3 rounded-lg hover:bg-[#7cfc00] hover:text-black transition-all hover:scale-105 active:scale-95">
+            Choose Scale
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms & Fee Structure Section -->
+  <section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-[#11161b] border border-gray-800 rounded-2xl p-6 sm:p-10">
+      <h2 class="text-xl sm:text-2xl font-bold text-white text-center mb-8 border-b border-gray-800 pb-4">
+        Agency Management Fees & Structure
+      </h2>
+      <div class="space-y-6 text-gray-300">
+        <div class="flex items-start space-x-4">
+          <div class="bg-[#7cfc00]/10 border border-[#7cfc00]/30 rounded-lg p-2 text-[#7cfc00] font-bold text-sm">01</div>
+          <div>
+            <h4 class="font-bold text-white text-base sm:text-lg">Month 1 (Setup & Onboarding): Flat 20,000 KES</h4>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1">Includes full technical setup, landing page development, audience engineering, and 30-day continuous campaign optimization.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="bg-[#7cfc00]/10 border border-[#7cfc00]/30 rounded-lg p-2 text-[#7cfc00] font-bold text-sm">02</div>
+          <div>
+            <h4 class="font-bold text-white text-base sm:text-lg">Month 2+ (Growth Phase): Performance-Based 20%</h4>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1">Calculated as 20% of monthly campaign ad spend to keep agency incentives aligned with your growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- M-PESA Dedicated Payment Badge -->
+      <div class="mt-8 bg-[#0b0f12] border border-[#7cfc00]/40 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-glow">
+        <div class="flex items-center space-x-4">
+          <div class="bg-[#2e7d32] text-white font-extrabold text-xs px-3 py-1.5 rounded tracking-wider uppercase">
+            M-PESA ONLY
+          </div>
+          <div>
+            <div class="text-white font-bold text-sm sm:text-base">Agency Service Payment Method</div>
+            <div class="text-gray-400 text-xs">All agency service payments are accepted via M-PESA only.</div>
+          </div>
+        </div>
+        <a href="https://wa.me/254746748557?text=Hi,%20I'd%20like%20to%20request%20M-Pesa%20payment%20details" class="text-xs text-[#7cfc00] font-bold underline hover:text-white transition-colors">
+          Request M-PESA Details →
+        </a>
+      </div>
+
+      <p class="text-xs text-center text-gray-500 mt-8 pt-4 border-t border-gray-800">
+        *Note: Meta ad spend tiers are paid directly to Meta (Facebook/Instagram) and are separate from agency management fees.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 text-center border-t border-gray-800 bg-gradient-to-b from-[#0b0f12] to-[#11161b]">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">Ready to Launch Your Campaign?</h2>
+      <p class="text-gray-400 text-sm sm:text-base mb-8">Speak directly with us to audit your product and set up your ads this week.</p>
+      <a href="https://wa.me/254746748557" class="inline-flex items-center space-x-3 bg-accent text-black font-extrabold px-8 py-4 rounded-xl text-lg hover:opacity-90 transition-all shadow-glow animate-cta">
+        <span>ACTIVATE YOUR ADS — 0746 748 557</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-xs text-gray-600 border-t border-gray-800">
+    <p>&copy; 2026 Eastleigh E-Commerce Ads. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
