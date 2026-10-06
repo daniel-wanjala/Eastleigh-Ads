@@ -32,6 +32,15 @@
     .animate-cta {
       animation: ctaPulse 2.5s infinite ease-in-out;
     }
+
+    /* Green pulse ring for M-Pesa badge */
+    @keyframes greenGlowPulse {
+      0%, 100% { box-shadow: 0 0 15px rgba(124, 252, 0, 0.25), inset 0 0 10px rgba(124, 252, 0, 0.1); }
+      50% { box-shadow: 0 0 30px rgba(124, 252, 0, 0.5), inset 0 0 20px rgba(124, 252, 0, 0.2); }
+    }
+    .mpesa-card-glow {
+      animation: greenGlowPulse 3s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-lime-400 selection:text-black">
@@ -156,10 +165,11 @@
 
   <!-- Terms & Fee Structure Section -->
   <section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-[#11161b] border border-gray-800 rounded-2xl p-6 sm:p-10">
-      <h2 class="text-xl sm:text-2xl font-bold text-white text-center mb-8 border-b border-gray-800 pb-4">
+    <div class="bg-[#11161b] border border-gray-800 rounded-2xl p-6 sm:p-10 space-y-10">
+      <h2 class="text-xl sm:text-2xl font-bold text-white text-center border-b border-gray-800 pb-4">
         Agency Management Fees & Structure
       </h2>
+
       <div class="space-y-6 text-gray-300">
         <div class="flex items-start space-x-4">
           <div class="bg-[#7cfc00]/10 border border-[#7cfc00]/30 rounded-lg p-2 text-[#7cfc00] font-bold text-sm">01</div>
@@ -177,23 +187,28 @@
         </div>
       </div>
 
-      <!-- M-PESA Dedicated Payment Badge -->
-      <div class="mt-8 bg-[#0b0f12] border border-[#7cfc00]/40 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-glow">
-        <div class="flex items-center space-x-4">
-          <div class="bg-[#2e7d32] text-white font-extrabold text-xs px-3 py-1.5 rounded tracking-wider uppercase">
-            M-PESA ONLY
+      <!-- High-Impact, Prominent M-PESA Feature Card -->
+      <div class="relative overflow-hidden bg-gradient-to-r from-[#0d1c0d] via-[#0b0f12] to-[#0d1c0d] border-2 border-[#7cfc00] rounded-2xl p-6 sm:p-8 mpesa-card-glow text-center sm:text-left">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+          <div class="space-y-2">
+            <div class="inline-flex items-center space-x-2 bg-[#7cfc00] text-black font-black text-xs px-3 py-1 rounded-full uppercase tracking-widest">
+              <span>M-PESA ONLY</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white tracking-wide">
+              Agency Service Payment Method
+            </h3>
+            <p class="text-sm text-gray-300 max-w-lg">
+              All agency service payments are accepted via <span class="text-[#7cfc00] font-bold">M-PESA</span> only for fast, instant, and secure local processing.
+            </p>
           </div>
-          <div>
-            <div class="text-white font-bold text-sm sm:text-base">Agency Service Payment Method</div>
-            <div class="text-gray-400 text-xs">All agency service payments are accepted via M-PESA only.</div>
-          </div>
+          <a href="https://wa.me/254746748557?text=Hi,%20I%20would%20like%20to%20request%20the%20M-Pesa%20payment%20details" class="w-full sm:w-auto shrink-0 bg-[#7cfc00] text-black font-black px-6 py-3.5 rounded-xl text-sm sm:text-base hover:bg-lime-400 transition-all shadow-glow hover:scale-105 active:scale-95 flex items-center justify-center space-x-2">
+            <span>Request M-PESA Details</span>
+            <span class="text-lg">→</span>
+          </a>
         </div>
-        <a href="https://wa.me/254746748557?text=Hi,%20I'd%20like%20to%20request%20M-Pesa%20payment%20details" class="text-xs text-[#7cfc00] font-bold underline hover:text-white transition-colors">
-          Request M-PESA Details →
-        </a>
       </div>
 
-      <p class="text-xs text-center text-gray-500 mt-8 pt-4 border-t border-gray-800">
+      <p class="text-xs text-center text-gray-500 pt-2">
         *Note: Meta ad spend tiers are paid directly to Meta (Facebook/Instagram) and are separate from agency management fees.
       </p>
     </div>
