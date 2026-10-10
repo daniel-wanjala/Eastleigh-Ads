@@ -1,0 +1,8 @@
+{
+  "name": "Eastleigh E-Commerce Ads",
+  "description": "High-converting Meta ad packages and marketing funnels for e-commerce businesses.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
