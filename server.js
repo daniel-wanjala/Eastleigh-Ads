@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
 
-app.use(express.static(__dirname));
+// Explicit page route so Vercel's serverless bundler includes the application HTML.\napp.get('/apply.html', (req, res) => {\n  res.sendFile(path.join(__dirname, 'apply.html'));\n});\n\napp.use(express.static(__dirname));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res) => {
