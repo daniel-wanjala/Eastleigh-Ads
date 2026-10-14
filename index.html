@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://eastleighe-ads.vercel.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/public/styles.css">
   <style>
     :root{color-scheme:dark;--lime:#A8FF00;--bg:#0A0E0D;--panel:#111714;--panel2:#17211c;--line:#1f2b23;--text:#F3F6EE;--muted:#8E9883;--head:'Barlow Condensed',Impact,sans-serif;--body:'Barlow',system-ui,sans-serif}
@@ -109,6 +109,86 @@
       .navlinks{gap:15px}
       .brand{font-size:20px}
     }
+  
+    /* Aarivi-inspired refinement: modern product typography, calmer hierarchy, more breathing room.
+       Eastleigh's charcoal + lime identity is intentionally preserved. */
+    :root{
+      --head:'Manrope',system-ui,sans-serif;
+      --body:'DM Sans',system-ui,sans-serif;
+      --bg:#0A0E0D;
+      --panel:#101512;
+      --panel2:#151d17;
+      --line:#263129;
+      --text:#F5F7F2;
+      --muted:#A3ADA2;
+    }
+    body{font-family:var(--body);letter-spacing:-.01em}
+    h1,h2,h3,.display{font-family:var(--head);text-transform:none;letter-spacing:-.045em;line-height:1.04;font-weight:800}
+    h1{font-size:clamp(46px,6.2vw,76px);line-height:1.02;letter-spacing:-.055em;margin:22px 0}
+    h2{letter-spacing:-.045em}
+    h3{letter-spacing:-.035em}
+    .brand{font-family:var(--head);font-size:18px;letter-spacing:-.025em;font-weight:800}
+    .brand-sub{font-size:.76em;letter-spacing:-.015em}
+    .eyebrow{font-size:11px;letter-spacing:.09em;font-weight:700}
+    .btn{font-family:var(--body);font-size:14px;font-weight:700;text-transform:none;letter-spacing:-.01em;border-radius:10px;min-height:48px;padding:13px 18px}
+    .btn.small{font-size:13px;min-height:42px}
+    .hero{padding:92px 0 84px}
+    .hero-grid{gap:64px}
+    .hero-copy{font-size:17px;line-height:1.75;max-width:510px}
+    .hero-panel{border-radius:22px;background:linear-gradient(145deg,#141b15,#0d110e);padding:28px;box-shadow:0 28px 90px #0005}
+    .panel-number{font-family:var(--head);font-weight:800;letter-spacing:-.055em}
+    .trustbar{background:#0c100d}
+    .trust-grid{padding:24px 0}
+    .trust-item{font-size:13px;line-height:1.5}
+    section.block{padding:96px 0}
+    .section-head{max-width:700px;margin-bottom:38px}
+    .section-head h2{font-size:clamp(36px,4.5vw,54px);line-height:1.06;margin:16px 0}
+    .section-head p{font-size:16px;line-height:1.75;max-width:62ch}
+    .offer-grid{gap:24px}
+    .offer-card{border-radius:22px;padding:34px;background:linear-gradient(155deg,#151d12,#0d110e)}
+    .offer-card h3{font-size:30px;line-height:1.15}
+    .price{font-family:var(--head);letter-spacing:-.055em}
+    .checklist li{padding-block:13px;line-height:1.55}
+    .include-item,.separate article,.metric,.step,.fit{border-radius:16px}
+    .include-item{padding:20px;background:#111713}
+    .include-item .num,.step-no{font-family:var(--head);letter-spacing:-.04em}
+    .separate article{padding:22px;background:#0e130f}
+    .proof{background:#0c100d}
+    .proof-copy h2{font-size:clamp(36px,4.5vw,54px);line-height:1.06}
+    .metric{padding:24px;background:#111713}
+    .metric strong{font-family:var(--head);letter-spacing:-.05em}
+    .step{padding:26px;background:#111713}
+    .step h3,.fit h3{font-size:23px;line-height:1.2}
+    .step p,.fit p{line-height:1.7}
+    .fit{padding:26px;background:#111713}
+    .faq summary{font-size:16px;line-height:1.5}
+    .faq details{padding:22px 0}
+    .faq details p{line-height:1.75}
+    .final-cta{padding:92px 0}
+    .final-cta h2{font-size:clamp(42px,5.5vw,66px);line-height:1.04;letter-spacing:-.055em}
+    .final-cta p{line-height:1.75}
+    footer{line-height:1.7}
+    @media(max-width:800px){
+      .hero{padding:48px 0 42px}
+      .hero-grid{gap:30px}
+      h1{font-size:clamp(40px,10.5vw,58px);line-height:1.03;letter-spacing:-.05em}
+      .hero-copy{font-size:16px;line-height:1.7}
+      .hero-panel{padding:20px;border-radius:18px}
+      section.block{padding:62px 0}
+      .section-head{margin-bottom:26px}
+      .section-head h2{font-size:clamp(34px,8.5vw,42px);line-height:1.08}
+      .offer-card{padding:24px 18px;border-radius:18px}
+      .include-item{padding:15px 13px}
+      .metric{padding:16px 13px}
+      .step,.fit{padding:20px}
+      .final-cta{padding:60px 0 48px}
+      .final-cta h2{font-size:clamp(38px,9vw,52px)}
+    }
+    @media(max-width:380px){
+      .brand{font-size:15px}
+      .hero-panel{padding:16px}
+    }
+
   </style>
 </head>
 <body>
