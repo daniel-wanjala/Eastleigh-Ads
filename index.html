@@ -231,6 +231,12 @@
       opacity: 0.9;
     }
 
+    .hero-offer-strip { display: inline-block; max-width: 580px; margin: 2px 0 16px; padding: 12px 15px; background: #fff; border: 3px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); }
+    .hero-offer-price { font-size: 25px; font-weight: 900; line-height: 1.15; }
+    .hero-offer-price span { font-size: 10px; letter-spacing: .08em; background: var(--lime); padding: 3px 6px; border: 1px solid var(--line); vertical-align: middle; }
+    .hero-offer-strip p { margin-top: 7px; font-size: 13px; font-weight: 800; }
+    .hero-offer-strip small { display: block; margin-top: 5px; font-size: 11px; font-weight: 700; }
+
     /* MOCKUP PHONE & FLOATING STICKERS */
     .hero-art {
       position: relative;
@@ -790,16 +796,64 @@
       width: 100%;
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* RESPONSIVE BREAKPOINTS — prioritise small-screen visitors */
     @media (max-width: 860px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-art { margin-top: 20px; min-height: 320px; }
-      .pricing-grid { grid-template-columns: 1fr; }
+      html { scroll-padding-top: 68px; }
+      .wrap { width: min(100% - 28px, 680px); }
+      .hero { padding: 34px 0 30px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 14px; }
+      .hero-grid > div:first-child { min-width: 0; }
+      .hero h1 { font-size: clamp(38px, 9.5vw, 56px); line-height: 1.01; }
+      .hero-p { font-size: 17px; line-height: 1.5; }
+      .hero-ctas { display: grid; grid-template-columns: 1fr; gap: 12px; }
+      .hero-ctas .btn { width: 100%; min-height: 52px; padding: 14px 16px; text-align: center; }
+      .hero-offer-strip { margin: 16px 0 4px; padding: 14px; background: #fff; border: 3px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); }
+      .hero-offer-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-size: 25px; font-weight: 900; line-height: 1.15; }
+      .hero-offer-price span { font-size: 10px; letter-spacing: .07em; }
+      .hero-offer-strip p { font-size: 13px; line-height: 1.45; font-weight: 800; margin-top: 8px; }
+      .hero-offer-strip small { display: block; font-size: 11px; line-height: 1.4; font-weight: 700; margin-top: 7px; }
+      .hero-art { margin-top: 8px; min-height: 280px; }
+      .phone-mock { width: min(230px, 68vw); padding: 10px; }
+      .ad-media { height: 125px; }
+      .st-1 { top: 4px; right: 0; }
+      .st-2 { bottom: 8px; left: 0; }
+      .st-3 { top: 44%; right: 0; }
+      .sticker { font-size: 11px; padding: 6px 8px; }
+      .pricing-grid { grid-template-columns: 1fr; gap: 18px; }
       .feat-card { transform: none; order: -1; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .stat-box { padding: 16px 8px; min-width: 0; }
+      .stat-num { font-size: clamp(22px, 7vw, 34px); overflow-wrap: anywhere; }
+      .stat-label { font-size: 10px; line-height: 1.35; }
       .retro-window-grid { grid-template-columns: 1fr; }
       .nav-links a:not(.btn) { display: none; }
-      .mobile-bar { display: block; }
+      .nav-links .btn { padding: 10px 12px; font-size: 13px; box-shadow: 3px 3px 0 var(--line); }
+      section { padding: 42px 0; }
+      .sec-head { margin-bottom: 28px; }
+      .sec-title { font-size: clamp(29px, 7.5vw, 42px); }
+      .quiz-card { padding: 18px 14px; }
+      .quiz-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .quiz-opt-btn { padding: 10px 7px; font-size: 12px; overflow-wrap: anywhere; }
+      .card { padding: 20px 17px; }
+      .cta-banner { padding: 26px 20px; box-shadow: 6px 6px 0 var(--pink); }
+      .cta-banner .btn { width: 100%; text-align: center; }
+      footer { padding-bottom: 110px; }
+      .mobile-bar { display: block; padding-left: 12px; padding-right: 12px; }
+      .mobile-bar .btn { min-height: 48px; }
+    }
+
+    @media (max-width: 380px) {
+      .wrap { width: calc(100% - 22px); }
+      .logo { font-size: 14px; }
+      .hero h1 { font-size: 37px; }
+      .hero-art { min-height: 255px; }
+      .phone-mock { width: 205px; }
+      .st-3 { right: -2px; }
+      .stats-grid { gap: 8px; }
+      .stat-box { padding: 13px 5px; }
+      .quiz-options { grid-template-columns: 1fr 1fr; }
+      .nav-in { gap: 8px; }
+      .nav-links .btn { font-size: 11px; padding: 9px 8px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -847,9 +901,11 @@
             <a class="btn btn-pink" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Get the KSh 20,000 Setup ↗</a>
             <a class="btn btn-dark" href="#offer">See What's Included</a>
           </div>
-          <p class="hero-disclaimer">
-            ⚡ One-time setup fee. Ad spend & ongoing management are separate.
-          </p>
+          <div class="hero-offer-strip" aria-label="Setup price and inclusions">
+            <div class="hero-offer-price">KSh 20,000 <span>ONE-TIME SETUP</span></div>
+            <p>Campaign setup · WhatsApp or website funnel · onsite walkthrough & handover</p>
+            <small>Ad spend is paid directly to Meta. Ongoing management is separate.</small>
+          </div>
         </div>
 
         <!-- MOCKUP PHONE WITH ANIMATED AD PREVIEW -->
@@ -921,7 +977,7 @@
             <div class="card-price">KSh 20,000 <small>One-time payment</small></div>
             <p style="font-size: 14px; font-weight: 700;">Complete foundation setup for Kenyan store owners ready to launch or rebuild ads.</p>
             <ul class="check-list">
-              <li>Business & offer review</li><li>Audience & demographic targeting</li><li>Campaign structure setup</li><li>Your ad copy & visuals configured</li><li>WhatsApp DM or Website destination</li><li>Pre-launch check & video walkthrough</li>
+              <li>Business & offer review</li><li>Audience & demographic targeting</li><li>Campaign structure setup</li><li>Your ad copy & visuals configured</li><li>WhatsApp DM or Website destination</li><li>Pre-launch check, onsite walkthrough & handover</li>
             </ul>
             <a class="btn btn-lime" style="width: 100%; margin-top: 10px;" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Discuss Your Setup ↗</a>
           </div>
@@ -967,7 +1023,7 @@
           </div>
            <div class="stat-box">
             <span class="stat-num" data-target="1170000">0</span>
-            <span class="stat-label">Projected Revenue</span>
+            <span class="stat-label">Revenue</span>
           </div>
            <div class="stat-box">
             <span class="stat-num" data-target="50000">0</span>
