@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0A0E0D">
   <title>Apply for Meta Ads Setup | Eastleigh E-commerce Ads</title>
-  <meta name="description" content="Tell Eastleigh E-commerce Ads about your store and apply for the KSh 30,000 one-time Meta ads setup.">
+  <meta name="description" content="Choose a regional, nationwide or multi-country Meta Ads campaign setup based on your target markets and monthly ad budget.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,10 +31,24 @@
         <div class="eyebrow">Setup application</div>
         <h1>Let’s get your store <span>ad-ready.</span></h1>
         <p>Answer a few quick questions so I can understand your business before we move to WhatsApp. If it looks like a fit, we’ll confirm the scope, payment and onsite session there.</p>
-        <div class="price-row"><span class="price">KSh 30,000</span><span class="price-note">one-time setup fee · management and ad spend separate</span></div>
+        <div class="price-row"><span class="price" id="price-display">From KSh 20,000</span><span class="price-note">one-time upfront setup fee · Meta ad spend paid separately</span></div>
+        <p class="hint" style="margin-top:10px">Regional: KSh 20,000 setup + minimum KSh 15,000 ad budget. Nationwide: KSh 30,000 setup + minimum KSh 30,000 ad budget. Both require a minimum 30-day campaign. East Africa/Africa-wide campaigns are quoted individually.</p>
       </section>
       <form class="form-card" id="application-form">
         <div class="form-top"><div><h2>Tell me about your business</h2><p>This should take about two minutes.</p></div><span class="required-note">* Required fields</span></div>
+        <div class="fields" style="margin-bottom:24px">
+          <div class="field full"><span class="legend">Where do you want to run your campaign? *</span><div class="choices">
+            <label class="choice"><input type="radio" name="campaignScope" value="Regional — one county and neighbouring regions" required>Regional: one county + neighbouring regions</label>
+            <label class="choice"><input type="radio" name="campaignScope" value="Nationwide — across Kenya">Nationwide: across Kenya</label>
+            <label class="choice"><input type="radio" name="campaignScope" value="East Africa / Africa-wide — custom quote">East Africa / Africa-wide: custom quote</label>
+          </div><div class="hint" id="scope-hint">Choose your target market to see the applicable setup fee and minimum ad budget.</div></div>
+          <div class="field"><label for="monthly-budget">Planned Meta ad budget for 30 days (KSh) *</label><select id="monthly-budget" name="monthlyBudget" required>
+            <option value="">Choose your budget</option><option value="Below KSh 15,000">Below KSh 15,000</option><option value="KSh 15,000–29,999">KSh 15,000–29,999</option><option value="KSh 30,000–59,999">KSh 30,000–59,999</option><option value="KSh 60,000–99,999">KSh 60,000–99,999</option><option value="KSh 100,000 or more">KSh 100,000 or more</option><option value="Not decided yet">Not decided yet</option>
+          </select><div class="hint" id="budget-hint">Ad spend is paid separately to Meta.</div></div>
+          <div class="field"><label for="campaign-duration">Campaign duration *</label><select id="campaign-duration" name="campaignDuration" required>
+            <option value="">Choose duration</option><option value="30 days minimum">30 days (minimum)</option><option value="More than 30 days">More than 30 days</option><option value="Need advice">Need advice</option>
+          </select></div>
+        </div>
         <div class="fields">
           <div class="field"><label for="contact-name">Your name *</label><input id="contact-name" name="contactName" autocomplete="name" placeholder="Full name" required></div>
           <div class="field"><label for="business-name">Business name *</label><input id="business-name" name="businessName" autocomplete="organization" placeholder="Your store or brand" required></div>
@@ -66,11 +80,11 @@
           </div></div>
           <div class="field full"><label for="notes">Anything else I should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="notes" name="notes" placeholder="Website or social page link, current challenge, or other useful context"></textarea></div>
           <div class="field full"><span class="legend">Are you ready to proceed? *</span><div class="choices">
-            <label class="choice"><input type="radio" name="readinessToPay" value="Ready to proceed with KSh 30,000 setup" required>Yes, I'm ready to proceed with the KSh 30,000 setup</label>
+            <label class="choice"><input type="radio" name="readinessToPay" value="Ready to proceed with applicable setup fee" required>Yes, I'm ready to proceed with the applicable setup fee</label>
             <label class="choice"><input type="radio" name="readinessToPay" value="Need to ask a question first">I have a question before deciding</label>
             <label class="choice"><input type="radio" name="readinessToPay" value="Exploring options">I'm exploring options for now</label>
           </div></div>
-          <div class="field full"><label class="terms"><input type="checkbox" id="terms" required><span>I understand that <strong>KSh 30,000 is a one-time setup fee</strong>; ongoing ad management and the advertising budget paid to Meta are separate. I understand this application does not guarantee campaign results or sales.</span></label></div>
+          <div class="field full"><label class="terms"><input type="checkbox" id="terms" required><span>I understand the applicable <strong>one-time setup fee</strong>, the minimum 30-day campaign duration and minimum advertising budget for my chosen market. Meta ad spend is separate and paid directly to Meta. Campaign results and sales are not guaranteed.</span></label></div>
         </div>
         <p class="error" id="form-error" role="alert">Please complete the required fields and confirm the pricing terms before continuing.</p>
         <button class="submit" type="submit">Review answers & continue to WhatsApp ↗</button>
@@ -82,6 +96,25 @@
   <footer><div class="wrap footer-row"><span>© <span id="year"></span> Eastleigh E-commerce Ads</span><a href="/">Return to the main website</a></div></footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const scopeInputs = document.querySelectorAll('input[name="campaignScope"]');
+    const priceDisplay = document.getElementById('price-display');
+    const scopeHint = document.getElementById('scope-hint');
+    const budgetHint = document.getElementById('budget-hint');
+    scopeInputs.forEach(input => input.addEventListener('change', () => {
+      if (input.value.startsWith('Regional')) {
+        priceDisplay.textContent = 'KSh 20,000';
+        scopeHint.textContent = 'Regional setup: KSh 20,000 upfront; minimum Meta ad budget KSh 15,000 for 30 days.';
+        budgetHint.textContent = 'Regional campaigns require at least KSh 15,000 in Meta ad spend over 30 days.';
+      } else if (input.value.startsWith('Nationwide')) {
+        priceDisplay.textContent = 'KSh 30,000';
+        scopeHint.textContent = 'Nationwide setup: KSh 30,000 upfront; minimum Meta ad budget KSh 30,000 for 30 days.';
+        budgetHint.textContent = 'Nationwide campaigns require at least KSh 30,000 in Meta ad spend over 30 days.';
+      } else {
+        priceDisplay.textContent = 'Let’s Talk';
+        scopeHint.textContent = 'Multi-country campaigns are priced individually after reviewing target markets and campaign scope.';
+        budgetHint.textContent = 'Share your planned budget so we can assess the target markets and requirements.';
+      }
+    }));
     const form = document.getElementById('application-form');
     const error = document.getElementById('form-error');
     form.addEventListener('submit', function (event) {
@@ -91,7 +124,15 @@
         return;
       }
       const data = new FormData(form);
+      const scope = data.get('campaignScope');
+      const pricing = scope && scope.startsWith('Regional') ? 'KSh 20,000 one-time setup; minimum Meta budget KSh 15,000 for 30 days' :
+        scope && scope.startsWith('Nationwide') ? 'KSh 30,000 one-time setup; minimum Meta budget KSh 30,000 for 30 days' :
+        'Custom quote; target markets and budget to be discussed';
       const fields = [
+        ['Campaign scope', scope],
+        ['Pricing guidance', pricing],
+        ['Planned 30-day Meta ad budget', data.get('monthlyBudget')],
+        ['Campaign duration', data.get('campaignDuration')],
         ['Name', data.get('contactName')],
         ['Business', data.get('businessName')],
         ['WhatsApp', data.get('phone')],
@@ -106,7 +147,7 @@
       ];
       const message = "Hi Eastleigh E-commerce Ads, I've completed the setup application. Here are my details:\n\n" +
         fields.map(([label, value]) => label + ': ' + value).join('\n') +
-        "\n\nI understand the KSh 30,000 one-time setup fee; ongoing management and ad spend are separate. Please review my application and confirm the next step.";
+        "\n\nI understand the applicable one-time setup fee, minimum 30-day campaign duration and that ad spend is separate and paid to Meta. Please review my application and confirm the next step.";
       window.location.href = 'https://wa.me/254746748557?text=' + encodeURIComponent(message);
     });
   </script>
