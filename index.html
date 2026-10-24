@@ -6,9 +6,12 @@
   <meta name="theme-color" content="#10110F">
   <meta name="description" content="Meta Ads campaign setup for Kenyan businesses. Regional campaigns from KSh 20,000; nationwide campaigns KSh 30,000. 30-day minimum and separate Meta ad budget.">
   <title>Eastleigh E-commerce Ads | Meta Ads Setup for Kenyan Stores</title>
+  <meta property="og:title" content="Eastleigh E-commerce Ads | Meta Ads Setup for Kenyan Stores">
+  <meta property="og:description" content="Regional setups from KSh 20,000. Click-to-WhatsApp and website campaigns for Kenyan online stores.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --lime: #D8FF3E;
@@ -236,6 +239,16 @@
     .hero-offer-price span { font-size: 10px; letter-spacing: .08em; background: var(--lime); padding: 3px 6px; border: 1px solid var(--line); vertical-align: middle; }
     .hero-offer-strip p { margin-top: 7px; font-size: 13px; font-weight: 800; }
     .hero-offer-strip small { display: block; margin-top: 5px; font-size: 11px; font-weight: 700; }
+    .btn-pink,.feat-card{background:#C8115E}
+    .sec-eyebrow[style*="--pink"]{background:#C8115E!important}
+    .stat-box,.stat-box:nth-child(n){transform:none;--r:0deg}
+    .stat-box:hover{transform:translateY(-4px)}
+    .hero-chat{display:inline-block;margin-top:4px;font-size:14px;font-weight:900;text-decoration:underline}
+    .steps{counter-reset:s;list-style:none;margin-top:6px}
+    .steps li{counter-increment:s;padding:8px 0 8px 34px;position:relative;font-size:14px}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:24px;height:24px;border:2px solid #111;background:var(--lime);font-weight:900;text-align:center;line-height:20px}
+    .mobile-bar{gap:8px}
+    @media(max-width:860px){.mobile-bar{display:flex}.mobile-bar .btn{flex:1}.mobile-bar .btn-wa{flex:0 0 auto;background:#25D366;color:#fff}}
 
     /* MOCKUP PHONE & FLOATING STICKERS */
     .hero-art {
@@ -879,7 +892,7 @@
         <a href="#results">Case Study</a>
         <a href="#quiz">Store Quiz</a>
         <a href="#faq">FAQs</a>
-        <a class="btn btn-lime" style="padding: 8px 16px; font-size: 14px;" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Apply Now ↗</a>
+        <a class="btn btn-lime" style="padding: 8px 16px; font-size: 14px;" href="apply.html">Apply Now</a>
       </nav>
     </div>
   </header>
@@ -1090,7 +1103,7 @@
             </div>
             <div class="retro-body">
               <p style="font-size: 24px; font-weight: 900; color: #0A1B8F; margin-bottom: 6px;">15,000,000+ Potential Buyers</p>
-              <p style="font-size: 16px; font-weight: 900; margin-bottom: 8px;">Active Active Users on Facebook & Instagram in Kenya</p>
+              <p style="font-size: 16px; font-weight: 900; margin-bottom: 8px;">Active Users on Facebook & Instagram in Kenya</p>
               <p>Meta's ad network reaches over 15 Million active users daily in Kenya. Getting your products structured properly in front of this target audience is key to scaling daily orders!</p>
             </div>
           </div>
@@ -1162,14 +1175,14 @@
       </div>
       <div>
         Regional setup from KSh 20,000 · Nationwide setup KSh 30,000 · Meta ad spend separate.<br>
-        Connect: <a href="https://www.facebook.com/EastleighEcommerceAds/" target="_blank" rel="noopener">Facebook Page ↗</a>
+        WhatsApp: <a href="https://wa.me/254746748557" data-track="whatsapp">0746 748 557</a> · <a href="https://www.facebook.com/EastleighEcommerceAds/" target="_blank" rel="noopener">Facebook ↗</a>
       </div>
     </div>
   </footer>
 
   <!-- MOBILE STICKY CTA BAR -->
   <div class="mobile-bar">
-    <a class="btn btn-pink" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Campaign packages ↗</a>
+    <a class="btn btn-pink" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Apply for setup</a>
   </div>
 
   <!-- INTERACTIVE SCRIPT -->
@@ -1334,6 +1347,11 @@
         });
       });
 
+      document.addEventListener("click", function (e) {
+        if (!window.fbq) return;
+        if (e.target.closest('a[href="apply.html"]')) fbq("trackCustom", "ApplyClick");
+        if (e.target.closest('[data-track="whatsapp"]')) fbq("track", "Contact");
+      });
     })();
   </script>
 </body>
