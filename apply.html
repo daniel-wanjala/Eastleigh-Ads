@@ -35,7 +35,7 @@ form{background:#fff;border:4px solid var(--ink);border-radius:16px;box-shadow:6
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}.full{grid-column:1/-1}
 label,.legend{display:block;font-weight:900;font-size:14px;margin-bottom:7px}
 .hint{font-size:12px;font-weight:700;color:var(--muted);margin-top:6px}
-input[type=text],input[type=tel],input[type=url],select{width:100%;border:3px solid var(--ink);border-radius:10px;background:#fff;font:500 16px var(--f);padding:12px;color:var(--ink)}
+input[type=text],input[type=tel],input[type=url],input[type=time],select{width:100%;border:3px solid var(--ink);border-radius:10px;background:#fff;font:500 16px var(--f);padding:12px;color:var(--ink)}
 input:focus,select:focus{outline:3px solid var(--lime);outline-offset:1px}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .choice{display:flex;gap:9px;align-items:flex-start;border:3px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:700;cursor:pointer;margin:0}
@@ -83,6 +83,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}f
       <div><label for="products">What do you sell? *</label><input type="text" id="products" name="products" placeholder="e.g. shoes, appliances" required></div>
       <div><label for="name">Your name *</label><input type="text" id="name" name="name" autocomplete="name" required></div>
       <div><label for="business">Business name *</label><input type="text" id="business" name="business" autocomplete="organization" required></div>
+      <div><label for="location">Business location *</label><input type="text" id="location" name="location" placeholder="e.g. Eastleigh, Nairobi" autocomplete="street-address" required></div>
+      <div><label for="opening-time">Opening time *</label><input type="time" id="opening-time" name="openingTime" required></div>
+      <div><label for="closing-time">Closing time *</label><input type="time" id="closing-time" name="closingTime" required></div>
+      <div class="full"><span class="legend">Working days *</span>
+        <div class="choices" id="working-days">
+          <label class="choice"><input type="checkbox" name="workingDays" value="Monday">Monday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Tuesday">Tuesday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Wednesday">Wednesday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Thursday">Thursday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Friday">Friday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Saturday">Saturday</label>
+          <label class="choice"><input type="checkbox" name="workingDays" value="Sunday">Sunday</label>
+        </div>
+        <div class="hint">Select every day your business is open.</div>
+      </div>
       <div class="full"><label for="phone">WhatsApp number *</label><input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="07XX XXX XXX" required></div>
       <div class="full"><span class="legend">Main goal *</span>
         <div class="choices">
@@ -118,8 +133,11 @@ form.addEventListener('submit',function(e){
   e.preventDefault();
   if(!form.reportValidity()){err.style.display='block';return;}
   var d=new FormData(form),scope=d.get('scope');
+  var workingDays=d.getAll('workingDays');
+  if(!workingDays.length){err.textContent='Please select at least one working day and complete the required fields.';err.style.display='block';document.getElementById('working-days').scrollIntoView({behavior:'smooth',block:'center'});return;}
+  err.textContent='Please complete the required fields and tick the box above.';
   var fee=scope.indexOf('Regional')===0?'KSh 20,000 setup; min ad budget KSh 15,000 / 30 days':scope.indexOf('Nationwide')===0?'KSh 30,000 setup; min ad budget KSh 30,000 / 30 days':'Custom quote';
-  var rows=[['Scope',scope],['Pricing',fee],['30-day ad budget',d.get('budget')],['Name',d.get('name')],['Business',d.get('business')],['WhatsApp',d.get('phone')],['Products',d.get('products')],['Goal',d.get('goal')],['Link',d.get('link')||'Not provided']];
+  var rows=[['Scope',scope],['Pricing',fee],['30-day ad budget',d.get('budget')],['Name',d.get('name')],['Business',d.get('business')],['Business location',d.get('location')],['Opening time',d.get('openingTime')],['Closing time',d.get('closingTime')],['Working days',workingDays.join(', ')],['WhatsApp',d.get('phone')],['Products',d.get('products')],['Goal',d.get('goal')],['Link',d.get('link')||'Not provided']];
   var msg="Hi Eastleigh E-commerce Ads, I've completed the setup application:\n\n"+rows.map(function(r){return r[0]+': '+r[1]}).join('\n')+"\n\nI understand the setup fee, the 30-day minimum and that ad spend is paid separately to Meta. Please confirm the next step.";
   var go=function(){window.location.href='https://wa.me/254746748557?text='+encodeURIComponent(msg)};
   if(window.fbq){fbq('track','Lead',{content_name:scope});setTimeout(go,300);}else{go();}
