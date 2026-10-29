@@ -19,7 +19,65 @@
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');
 </script>
-<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.rv{opacity:1!important;transform:none!important}
+/* Mobile-first refinements */
+@media(max-width:600px){
+  html{scroll-padding-top:68px}
+  body{font-size:15px;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .wrap{width:calc(100% - 28px)}
+  .nav .wrap{gap:8px;padding:9px 0}
+  .logo{gap:8px;font-size:clamp(10px,3.1vw,13px);min-width:0;letter-spacing:-.02em}
+  .logo img{width:34px;height:34px;flex:0 0 34px;object-fit:contain}
+  .logo small{font-size:8px;letter-spacing:.08em;margin-top:3px}
+  .links{gap:8px}
+  .links .btn{padding:10px 12px;font-size:12px;white-space:nowrap}
+  .hero{padding:32px 0 26px}
+  .hg{gap:28px}
+  h1{font-size:clamp(39px,11vw,58px);line-height:.98;letter-spacing:-.055em;overflow-wrap:normal}
+  .pill{font-size:11px;padding:7px 10px;margin-bottom:16px;max-width:100%;flex-wrap:wrap}
+  .lead{font-size:16px;line-height:1.55}
+  .cta{display:grid;grid-template-columns:1fr;gap:10px}
+  .cta .btn{width:100%;min-height:48px;padding:14px 16px;text-align:center}
+  .offer{width:100%;padding:15px}
+  .offer b{font-size:clamp(22px,6vw,26px)}
+  .art{width:100%;min-width:0;padding:0 12px}
+  .ph{width:min(272px,82vw);padding:8px;border-radius:28px}
+  .ch{height:320px}
+  .st{font-size:10px;padding:7px 9px;white-space:normal;max-width:130px}
+  .s1{right:-1%;top:3%}.s2{left:-1%;bottom:8%}
+  section{padding:48px 0}
+  .sh{margin-bottom:28px}
+  .sh h2{font-size:clamp(29px,8vw,40px)}
+  .pg{gap:14px}
+  .card{padding:21px 18px}
+  .sg{gap:10px}
+  .sb{padding:20px 8px}
+  .sb b{font-size:clamp(25px,7vw,36px)}
+  .sb span{font-size:10px;letter-spacing:.03em}
+  .stp{gap:12px}
+  .stp .gl{padding:22px 17px}
+  .qz{padding:20px 15px}
+  .chip{padding:10px 12px;min-height:40px}
+  .rs{padding:16px}
+  .fin{padding:34px 18px;border-radius:20px}
+  .fin h2{font-size:clamp(30px,8vw,42px)}
+  footer{padding-bottom:30px}
+  footer .wrap{flex-direction:column}
+  .mb{padding:9px 10px calc(9px + env(safe-area-inset-bottom))}
+  .mb .btn{min-height:46px;padding:12px 10px;font-size:14px}
+}
+@media(max-width:380px){
+  .wrap{width:calc(100% - 22px)}
+  .logo{font-size:10px}
+  .logo img{width:30px;height:30px;flex-basis:30px}
+  .logo small{font-size:7px}
+  .links .btn{padding:9px 10px;font-size:11px}
+  h1{font-size:clamp(36px,10.5vw,44px)}
+  .st{max-width:108px;font-size:9px}
+  .sb span{font-size:9px}
+}
+
+</style></noscript>
 <style>
 :root{--bg:#0F1A22;--lime:#8AF500;--pink:#FF4E91;--cyan:#55F4ED;--t:#F2F5F0;--m:#9AA8B0;--line:#ffffff1f;--f:'Space Grotesk',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -122,7 +180,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--m);font-
 <div class="aur"><i></i><i></i><i></i></div>
 
 <header class="nav"><div class="wrap">
-  <a class="logo" href="#"><img src="apple-touch-icon.png" alt="Eastleigh E-commerce Ads logo"><span>EASTLEIGH E-COMMERCE ADS<small>META ADS FOR KENYAN STORES</small></span></a>
+  <a class="logo" href="#"><img src="/images/icon-512.png" alt="Eastleigh E-commerce Ads logo"><span>EASTLEIGH E-COMMERCE ADS<small>META ADS FOR KENYAN STORES</small></span></a>
   <nav class="links"><a href="#offer">Pricing</a><a href="#results">Case study</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a class="btn" href="apply.html">Apply now</a></nav>
 </div></header>
 
