@@ -237,6 +237,11 @@
       opacity: 0.9;
     }
 
+    .daily-spots { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:0 0 14px; padding:10px 13px; background:var(--ink); color:#fff; border:3px solid var(--line); border-radius:10px; box-shadow:var(--shadow-sm); font-size:13px; font-weight:900; animation:spotsPulse 2.4s ease-in-out infinite; }
+    .daily-spots .spots-count { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:34px; padding:0 7px; background:var(--lime); color:var(--ink); border:2px solid #fff; border-radius:8px; font-size:18px; }
+    .daily-spots small { display:block; flex-basis:100%; font-size:11px; font-weight:700; color:#e8e8e8; }
+    @keyframes spotsPulse { 0%,100% { box-shadow:3px 3px 0 var(--line); } 50% { box-shadow:5px 5px 0 var(--pink); } }
+    @media (prefers-reduced-motion: reduce) { .daily-spots { animation:none; } }
     .hero-offer-strip { display: inline-block; max-width: 580px; margin: 2px 0 16px; padding: 12px 15px; background: #fff; border: 3px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); }
     .hero-offer-price { font-size: 25px; font-weight: 900; line-height: 1.15; }
     .hero-offer-price span { font-size: 10px; letter-spacing: .08em; background: var(--lime); padding: 3px 6px; border: 1px solid var(--line); vertical-align: middle; }
@@ -913,14 +918,15 @@
           <p class="hero-p">
             A hands-on Meta ads setup for online shops in Kenya ready to convert social scrolling into direct WhatsApp conversations and website orders.
           </p>
+          <div class="daily-spots" role="note" aria-label="Three new setups available each weekday"><span class="spots-count">3</span><span>NEW SETUPS PER WEEKDAY</span><small>Apply early. If today’s slots are full, we’ll confirm tomorrow’s availability on WhatsApp.</small></div>
           <div class="hero-ctas">
             <a class="btn btn-pink" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Find Your Campaign Package ↗</a>
             <a class="btn btn-dark" href="#offer">See What's Included</a>
           </div>
           <div class="hero-offer-strip" aria-label="Setup price and inclusions">
             <div class="hero-offer-price">From KSh 20,000 <span>ONE-TIME SETUP</span></div>
-            <p>Regional campaigns from KSh 20,000 · Nationwide campaigns KSh 30,000</p>
-            <small>30-day minimum campaign · Meta ad spend paid separately</small>
+            <p>We take 3 new setups per weekday. Tell us what you sell, where you deliver, and how orders are fulfilled.</p>
+            <small>Regional KSh 20,000 · Nationwide KSh 30,000 · 30-day minimum · Meta ad spend paid separately</small>
           </div>
         </div>
 
@@ -955,14 +961,14 @@
     <!-- TICKER -->
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>★ REGIONAL SETUP FROM KSh 20,000</span>
-        <span><b>★</b> AD SPEND PAID DIRECT TO META</span>
+        <span>★ 3 NEW SETUPS PER WEEKDAY — APPLY EARLY</span>
+        <span><b>★</b> IF TODAY IS FULL, WE’LL CONFIRM TOMORROW ON WHATSAPP</span>
         <span>★ WHATSAPP DM OR WEBSITE FUNNEL</span>
         <span><b>★</b> PRE-LAUNCH CHECKS & HANDOVER</span>
         <span>★ NO HIDDEN SURPRISES</span>
         <span><b>★</b> MEASURE, LEARN & SCALE</span>
-        <span>★ REGIONAL SETUP FROM KSh 20,000</span>
-        <span><b>★</b> AD SPEND PAID DIRECT TO META</span>
+        <span>★ 3 NEW SETUPS PER WEEKDAY — APPLY EARLY</span>
+        <span><b>★</b> IF TODAY IS FULL, WE’LL CONFIRM TOMORROW ON WHATSAPP</span>
         <span>★ WHATSAPP DM OR WEBSITE FUNNEL</span>
         <span><b>★</b> PRE-LAUNCH CHECKS & HANDOVER</span>
       </div>
@@ -1162,7 +1168,7 @@
       <div class="wrap">
         <div class="cta-banner">
           <h2>Ready to build a better ad foundation?</h2>
-          <p>Tell us what you sell, where you deliver, and how orders are fulfilled. Let's build your setup.</p>
+          <p><strong>We take 3 new setups per weekday.</strong> Apply now and we’ll confirm your spot on WhatsApp. Tell us what you sell, where you deliver, and how orders are fulfilled. If today’s slots are full, we’ll confirm tomorrow’s availability.</p>
           <a class="btn btn-lime" style="font-size: 18px; padding: 16px 28px;" href="https://eastleighe-ads.vercel.app/apply.html" target="_blank" rel="noopener">Start Your Setup Application ↗</a>
         </div>
       </div>
@@ -1177,7 +1183,7 @@
         Meta Advertising Setup for Online Retailers in Kenya.
       </div>
       <div>
-        Regional setup from KSh 20,000 · Nationwide setup KSh 30,000 · Meta ad spend separate.<br>
+        3 new setups per weekday · Regional setup from KSh 20,000 · Nationwide setup KSh 30,000 · Meta ad spend separate.<br>
         WhatsApp: <a href="https://wa.me/254746748557" data-track="whatsapp">0746 748 557</a> · <a href="https://www.facebook.com/EastleighEcommerceAds/" target="_blank" rel="noopener">Facebook ↗</a>
       </div>
     </div>
